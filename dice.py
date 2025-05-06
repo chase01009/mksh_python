@@ -5,51 +5,42 @@ window = tk.Tk()
 window.title("dice,exe")
 window.geometry("200x200")
 
-def dicea():
-    a = rd.randint(1,6)
-    return a
-def diceb():
-    b = rd.randint(1,6)
-    return b
-def dicec():
-    c = rd.randint(1,6)
-    return c
-def diced():
-    d = rd.randint(1,6)
-    return d
-def dicee():
-    e = rd.randint(1,6)
-    return e
-def dice():
-    return dicea(),diceb(),dicec(),diced(),dicee()
+def dice(a):
+    dice = ['a','b','c','d','e']
+    for i in range(4):
+        dice[i] = rd.randint(1,6)
+    return dice[a]
+def alldice():
+    
+    return dice(0), dice(1), dice(2), dice(3), dice(4)
 
-def total():
-    total = dicea()+diceb()+dicec()+diced()+dicee()
-    return total
+#def total():
+    #total = dice(0)+dice(1)+dice(2)+dice(3)+dice(4)
+    #return total
 def placea():
-    aa = tk.Label(window, text=dicea())
+    aa = tk.Label(window, text=dice(0))
     aa.place(relx=0.3,rely=0.55)
-    aa.config(text=dicea())
+    aa.config(text=dice(0))
     return aa
 def placeb():
-    ab = tk.Label(window, text=diceb())
+    ab = tk.Label(window, text=dice(1))
     ab.place(relx=0.4,rely=0.55)
-    ab.config(text=diceb())
+    ab.config(text=dice(1))
     return ab
 def placec():
-    ac = tk.Label(window, text=dicec())
+    ac = tk.Label(window, text=dice(2))
     ac.place(relx=0.5,rely=0.55)
-    ac.config(text=dicec())
+    ac.config(text=dice(2))
     return ac
 def placed():
-    ad = tk.Label(window, text=diced())
+    ad = tk.Label(window, text=dice(3))
     ad.place(relx=0.6,rely=0.55)
-    ad.config(text=diced())
+    ad.config(text=dice(3))
     return ad
 def placee():
-    ae = tk.Label(window, text=dicee())
+    ae = tk.Label(window, text=dice(4))
     ae.place(relx=0.7,rely=0.55)
-    ae.config(text=dicee())
+    ae.config(text=dice(4))
     return ae
 def placetotal():
     atotal = tk.Label(window, text=total())
@@ -60,7 +51,7 @@ def allplaces():
     return placea(),placeb(),placec(),placed(),placee(),placetotal()
 
 def click():
-    dice()
+    alldice()
     allplaces()
 
 btn = tk.Button(window, text="roll",font=("Arial",25,"bold"), command=click)
