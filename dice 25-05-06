@@ -1,0 +1,38 @@
+import random as rd
+import tkinter as tk
+
+window = tk.Tk()
+window.title("dice,exe")
+window.geometry("200x200")
+
+def dice(a):
+    dices = ['a','b','c','d','e']
+    for i in range(5):
+        dices[i] = rd.randint(1,6)
+    return dices[a]
+def alldice():
+    return dice(0), dice(1), dice(2), dice(3), dice(4)
+
+def total():
+    total = dice(0)+dice(1)+dice(2)+dice(3)+dice(4)
+    return total
+def place(a):
+    places = tk.Label(window, text=dice(a))
+    places.place(relx=0.3+a*0.1,rely=0.55)
+    places.config(text=dice(a))
+    return places
+def placetotal():
+    atotal = tk.Label(window, text=total())
+    atotal.place(relx=0.5,rely=0.45)
+    atotal.config(text=total())
+    return atotal
+def allplaces():
+    return place(0),place(1),place(2),place(3),place(4),placetotal()
+
+def click():
+    alldice()
+    allplaces()
+
+btn = tk.Button(window, text="roll",font=("Arial",25,"bold"), command=click)
+btn.pack(pady=20)
+window.mainloop()
