@@ -1,0 +1,6 @@
+stu1 = ["Wang_Da-Ming",174,65]
+stu2 = ["Lin_Shou-Hua",168,58]
+stu3 = ["Shu_Jong-Hu",182,70]
+stu4 = ["Qou_Shou-Huae",159,45]
+body_info = [stu1, stu2, stu3, stu4]
+print(body_info)
