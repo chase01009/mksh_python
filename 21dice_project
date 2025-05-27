@@ -1,0 +1,23 @@
+#21dice_project
+#create in 2025-05-27
+
+import random as rd
+import tkinter as tk
+
+x = int(0)
+y = int(0)
+A = [x,y]
+def r_r():
+    for i in range(2):
+        A[i] = rd.randint(1,6)
+def amount(a):
+    print (A[a])
+    return A[a]
+def t_a():
+    print(A[0]+A[1])
+    return A[0]+A[1]
+
+r_r()
+amount(1)
+amount(0)
+t_a()
