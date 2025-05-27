@@ -1,38 +1,69 @@
+#21dice_project
+#create in 2025-05-27
+
 import random as rd
 import tkinter as tk
 
-window = tk.Tk()
-window.title("dice,exe")
-window.geometry("200x200")
+i = 0
+x = int(0)
+y = int(0)
+A = [x,y]
 
-def dice(a):
-    dices = ['a','b','c','d','e']
-    for i in range(5):
-        dices[i] = rd.randint(1,6)
-    return dices[a]
-def alldice():
-    return dice(0), dice(1), dice(2), dice(3), dice(4)
+while True :
+    def r_r():
+        for i in range(2):
+            A[i] = rd.randint(1,6)
+    def amount(a):
+        return A[a]
+    def t_a():
+        t_a = A[0]+A[1]
+        t_a = "%02d" % t_a
+        return t_a
+    def a_t_a():
+        a_t_a = t_a()
+        a = a_t_a
+        if a==0:
+            return a
+        elif a > 0:
+            a = a+A[0]+A[1]
+            return a
 
-def total():
-    total = dice(0)+dice(1)+dice(2)+dice(3)+dice(4)
-    return total
-def place(a):
-    places = tk.Label(window, text=dice(a))
-    places.place(relx=0.3+a*0.1,rely=0.55)
-    places.config(text=dice(a))
-    return places
-def placetotal():
-    atotal = tk.Label(window, text=total())
-    atotal.place(relx=0.5,rely=0.45)
-    atotal.config(text=total())
-    return atotal
-def allplaces():
-    return place(0),place(1),place(2),place(3),place(4),placetotal()
 
-def click():
-    alldice()
-    allplaces()
+    def a_a():  
+        return A[0], A[1]
 
-btn = tk.Button(window, text="roll",font=("Arial",25,"bold"), command=click)
-btn.pack(pady=20)
-window.mainloop()
+    window = tk.Tk()
+    window.title("21_dice")
+    window.geometry("200x200")
+
+    def place(a):
+        places = tk.Label(window, text=amount(a))
+        places.place(relx=0.3+a*0.3,rely=0.55)
+        places.config(text=amount(a))
+        return places
+    def p_t():
+        atotal = tk.Label(window, text=t_a())
+        atotal.place(relx=0.45,rely=0.45)
+        atotal.config(text=t_a())
+        return atotal
+    def a_p():
+        return place(0),place(1),p_t()
+
+    def click():
+        r_r()
+        a_a()
+        a_p()
+
+
+
+
+    btn1 = tk.Button(window, text="roll",font=("Arial",25,"bold"), command=click)
+    btn1.pack(pady=20)
+    btn2 = tk.Button(window, text="end",font=("Arial",25,"bold"), command=breakpoint)
+    btn2.pack(pady=20)
+    if click() == True:
+        i += 1
+        continue
+    #elif  == True:
+        
+    window.mainloop()

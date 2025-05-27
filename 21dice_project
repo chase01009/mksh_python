@@ -21,3 +21,13 @@ r_r()
 amount(1)
 amount(0)
 t_a()
+
+window = tk.Tk()
+window.title("21_dice")
+window.geometry("200x200")
+
+
+
+
+
+
