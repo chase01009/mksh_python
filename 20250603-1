@@ -1,0 +1,10 @@
+score = list()
+n = int(input("n="))
+while n>=0:
+    scores.append(n)
+    n = int(input("n="))
+print(sorted(scores))
+print("最高分是", max(scores))
+print("最低分是", min(scores))
+print("總分是", sum(scores))
+print("平均是", sum(scores)/len(scores))
